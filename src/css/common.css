@@ -16,23 +16,3 @@ img {
   display: block;
   max-width: 100%;
 }
-
-button {
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  padding: 10px 73px;
-  min-width: 200px;
-
-  cursor: pointer;
-
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.9;
-  letter-spacing: 0.06em;
-}
-
-button + button {
-  margin-top: 50px;
-}

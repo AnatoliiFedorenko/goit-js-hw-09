@@ -1,7 +1,6 @@
-// Описаний в документації
 import flatpickr from 'flatpickr';
-// Додатковий імпорт стилів
 import 'flatpickr/dist/flatpickr.min.css';
+import Notiflix from 'notiflix';
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
@@ -65,7 +64,7 @@ const options = {
   onClose(selectedDates) {
     selectedTime = selectedDates[0];
     if (selectedDates[0] < Date.now()) {
-      alert('Please choose a date in the future');
+      Notiflix.Notify.warning('Please choose a date in the future');
       refs.startBtn.disabled = true;
       const diffTime = convertMs(0);
       updateClockface(diffTime);
@@ -88,7 +87,7 @@ function timer() {
 
   if (deltaTime <= 0) {
     clearInterval(timerId);
-    alert('Time is out');
+    Notiflix.Notify.info('Time is out');
     const diffTime = convertMs(0);
     updateClockface(diffTime);
     return;

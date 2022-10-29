@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 const form = document.querySelector('.form');
 
 form.addEventListener('submit', promiseCounter);
@@ -12,10 +14,12 @@ function promiseCounter(e) {
     const delay = firstDelay + i * step;
     createPromise(i + 1, delay)
       .then(({ position, delay }) =>
-        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`)
+        Notiflix.Notify.success(
+          `✅ Fulfilled promise ${position} in ${delay}ms`
+        )
       )
       .catch(({ position, delay }) =>
-        console.log(`❌ Rejected promise ${position} in ${delay}ms`)
+        Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`)
       );
   }
   e.currentTarget.reset();

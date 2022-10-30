@@ -8,6 +8,7 @@ const refs = {
   clockfaceHours: document.querySelector('[data-hours]'),
   clockfaceMinutes: document.querySelector('[data-minutes]'),
   clockfaceSeconds: document.querySelector('[data-seconds]'),
+  timePicker: document.querySelector('.timepicker'),
 };
 
 refs.startBtn.disabled = true;
@@ -84,6 +85,9 @@ function timer() {
   const currentDate = Date.now();
 
   const deltaTime = selectedTime - currentDate;
+
+  refs.startBtn.disabled = true;
+  refs.timePicker.disabled = true;
 
   if (deltaTime <= 0) {
     clearInterval(timerId);

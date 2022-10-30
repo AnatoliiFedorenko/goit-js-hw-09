@@ -99,5 +99,14 @@ function timer() {
 }
 
 function startTimer() {
+  settings();
+
+  const currentDate = Date.now();
+
+  const deltaTime = selectedTime - currentDate;
+
+  refs.startBtn.disabled = true;
+  refs.timePicker.disabled = true;
+
   timerId = setInterval(timer, 1000);
 }
